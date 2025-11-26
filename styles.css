@@ -1,0 +1,57 @@
+
+
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --accent:#0b76ff;
+  --muted:#6b7280;
+  --radius:12px;
+  --gap:14px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#eef3fb);
+  color:#111827;
+  -webkit-font-smoothing:antialiased;
+}
+.header{padding:28px 18px 10px;text-align:center}
+.header h1{margin:0;font-size:1.6rem}
+.subtitle{margin:6px 0 0;color:var(--muted)}
+.container{max-width:1100px;margin:18px auto;padding:0 18px}
+.controls{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-bottom:12px}
+.btn{background:transparent;border:1px solid var(--accent);color:var(--accent);padding:8px 12px;border-radius:10px;cursor:pointer}
+.btn.primary{background:var(--accent);color:#fff;border-color:transparent}
+.btn.small{padding:4px 8px;font-size:.85rem}
+.search-wrap input{padding:8px 12px;border-radius:10px;border:1px solid #d1d5db}
+
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:var(--gap)}
+.day-card{background:var(--card);padding:12px;border-radius:var(--radius);min-height:180px;display:flex;flex-direction:column}
+.day-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.day-header strong{font-size:0.95rem}
+.tasks{display:flex;flex-direction:column;gap:8px;flex:1;overflow:auto;padding-right:6px}
+.task{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:10px;border:1px solid #e6e9ef}
+.task .task-title{margin:0;font-size:0.92rem}
+.task .task-time{margin:0;color:var(--muted);font-size:0.8rem}
+.task.done{opacity:0.6;text-decoration:line-through}
+
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35);z-index:50}
+.modal.hidden{display:none}
+.modal-content{background:var(--card);padding:18px;border-radius:14px;min-width:320px;max-width:520px;width:92%}
+.modal-content form{display:flex;flex-direction:column;gap:10px}
+.modal-content input, .modal-content select, .modal-content textarea{padding:8px;border-radius:8px;border:1px solid #e5e7eb}
+.modal-actions{display:flex;gap:8px;justify-content:flex-end}
+
+.footer{text-align:center;padding:14px;color:var(--muted)}
+
+/* Responsivo */
+@media (max-width:900px){
+  .week-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:520px){
+  .week-grid{grid-template-columns:repeat(1,1fr)}
+  .controls{flex-direction:column;align-items:stretch}
+}
