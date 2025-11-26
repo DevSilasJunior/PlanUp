@@ -1,0 +1,77 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cronograma Semanal — JR Cron</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="header">
+    <h1>Cronograma Semanal</h1>
+    <p class="subtitle">Organize suas tarefas da semana — simples, rápido e responsivo.</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <button id="novoTaskBtn" class="btn">+ Nova tarefa</button>
+      <div class="search-wrap">
+        <input id="searchInput" placeholder="Buscar tarefa..." aria-label="Buscar tarefa" />
+      </div>
+    </section>
+
+    <section class="week-grid" id="weekGrid" aria-label="Cronograma semanal">
+      <!-- Dias gerados por JavaScript -->
+    </section>
+
+    <template id="taskTemplate">
+      <article class="task" draggable="true">
+        <div class="task-info">
+          <h3 class="task-title"></h3>
+          <p class="task-time"></p>
+        </div>
+        <div class="task-actions">
+          <button class="btn small edit">Editar</button>
+          <button class="btn small delete">Excluir</button>
+        </div>
+      </article>
+    </template>
+  </main>
+
+  <!-- Modal para criar/editar tarefa -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-content">
+      <h2 id="modalTitle">Nova tarefa</h2>
+      <form id="taskForm">
+        <label>
+          Título
+          <input id="title" required maxlength="80" />
+        </label>
+        <label>
+          Dia
+          <select id="day" required></select>
+        </label>
+        <label>
+          Hora (opcional)
+          <input id="time" type="time" />
+        </label>
+        <label>
+          Descrição (opcional)
+          <textarea id="desc" rows="3"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="submit" class="btn primary">Salvar</button>
+          <button type="button" id="cancelBtn" class="btn">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <small>Feito para estudantes e profissionais — salva localmente no seu navegador.</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
